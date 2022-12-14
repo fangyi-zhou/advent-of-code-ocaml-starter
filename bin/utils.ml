@@ -1,5 +1,3 @@
-open! Base
-open! Stdio
 open Unix
 open Lwt
 open Cohttp
@@ -10,16 +8,16 @@ let session_file = ".session"
 let year_file = ".year"
 
 let get_token () =
-  let file = In_channel.create session_file in
+  let file = In_channel.open_text session_file in
   let token = In_channel.input_all file in
-  In_channel.close file ; String.strip token
+  In_channel.close file ; String.trim token
 
 let get_year () =
   if Caml.Sys.file_exists year_file then (
-    let file = In_channel.create year_file in
+    let file = In_channel.open_text year_file in
     let year = In_channel.input_all file in
     In_channel.close file ;
-    Int.of_string (String.strip year) )
+    int_of_string (String.trim year) )
   else
     let time = time () in
     let time = gmtime time in
@@ -47,7 +45,7 @@ let download_input day fn =
     else failwith ("Unable to get data, status " ^ Int.to_string code)
   in
   let body = Lwt_main.run body in
-  let body = String.strip body in
-  let file = Out_channel.create fn in
+  let body = String.trim body in
+  let file = Out_channel.open_text fn in
   Out_channel.output_string file body ;
   Out_channel.close file

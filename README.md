@@ -31,3 +31,9 @@ which will invoke the `run` function for that DAY, with input taken from
 `inputs` directory.
 If no input file is present, then the input file would be downloaded using your
 session cookie.
+
+If you want to test your program with the small example for the day, the
+easiest way is to put it the `example` in the template file.
+The expectation test can be invoked with `dune test`, and updated with `dune
+promote`, see more in [dune documentation on expectation
+tests](https://dune.readthedocs.io/en/stable/tests.html#inline-expectation-tests).

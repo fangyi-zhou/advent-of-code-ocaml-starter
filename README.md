@@ -3,6 +3,7 @@
 ## Getting started
 
 1. Create a repository using this template
+1. Install dependencies via `opam install . --deps-only`
 1. Put your session cookie into `.session`
 1. (Optional) Put the year into `.year` (e.g. 2022)
 

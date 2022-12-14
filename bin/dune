@@ -1,0 +1,4 @@
+(executable
+ (public_name aoc)
+ (name main)
+ (libraries cohttp-lwt-unix lwt_ssl aoc))

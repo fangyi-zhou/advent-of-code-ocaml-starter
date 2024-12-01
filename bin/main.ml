@@ -5,7 +5,7 @@ let () =
   let args = Sys.argv in
   let day = args.(1) in
   let input_file = Printf.sprintf "inputs/%s.in" day in
-  if not @@ Caml.Sys.file_exists input_file then
+  if not @@ Stdlib.Sys.file_exists input_file then
     download_input day input_file ;
   let file = In_channel.open_text input_file in
   let inputs = In_channel.input_all file in

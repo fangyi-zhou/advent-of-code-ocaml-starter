@@ -13,7 +13,7 @@ let get_token () =
   In_channel.close file ; String.trim token
 
 let get_year () =
-  if Caml.Sys.file_exists year_file then (
+  if Stdlib.Sys.file_exists year_file then (
     let file = In_channel.open_text year_file in
     let year = In_channel.input_all file in
     In_channel.close file ;
